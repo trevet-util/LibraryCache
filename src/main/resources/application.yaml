@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /res
+res:
+  config:
+    maven:
+      cache-path: "/home/cache/resources/maven/"
+      remote-url: "https://maven.aliyun.com/repository/releases,https://maven.aliyun.com/nexus/content/groups/public"
+    alpine:
+      cache-path: "/home/cache/resources/alpine/"
+      remote-url: "https://mirrors.aliyun.com/alpine"
