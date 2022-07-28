@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  library-cache-server:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    image: library-cache-server:v0.0.2
+    container_name: library-cache-server
+    restart: always
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "81:8080"
+    volumes:
+#      - "/home/data/docker/library-cache/cache/:/home/cache/"
+      - "E:/base/lib/:/home/cache/"
