@@ -10,8 +10,19 @@ services:
     privileged: true
     environment:
       - TZ=Asia/Shanghai
-    ports:
-      - "81:8080"
+    command:
+      - "java"
+      - "-Dserver.port=80"
+      - "-jar"
+      - "app.jar"
+#    ports:
+#      - "81:8080"
     volumes:
-#      - "/home/data/docker/library-cache/cache/:/home/cache/"
-      - "E:/base/lib/:/home/cache/"
+      - "/home/data/docker/library-cache/cache/:/home/cache/"
+    networks:
+      np-nw:
+        ipv4_address: 192.168.2.200
+networks:
+  np-nw:
+    external:
+      name: "np-network"
