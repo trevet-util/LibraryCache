@@ -44,10 +44,10 @@ public class MavenCacheService implements IResourceCacheService {
                     URL url = new URL(String.format("%s%s", s, resURI));
                     URLConnection con = url.openConnection();
                     FileUtils.downFile(outputStream, con, file);
-                    log.info("Maven success downloaded from mirror: {} , Save path: {}", url, file.getPath());
+                    log.info("ok！mirror: {} , Save path: {}", url, file.getPath());
                     break;
                 } catch (IOException e) {
-                    log.error("上游仓库下载文件失败！: {}", String.format("%s%s", s, resURI));
+                    log.debug("上游仓库下载文件失败！: {}", String.format("%s%s", s, resURI));
                 }
             }
         } else {
