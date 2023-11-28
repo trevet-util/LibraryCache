@@ -18,7 +18,15 @@ mvn clean package
 命令行运行
 
 ```shell
-java -jar -Dres.config.maven.remote-url=https://maven.aliyun.com/repository/releases -Dres.config.alpine.remote-url=https://mirrors.aliyun.com/alpine library-cache-server-0.0.1-SNAPSHOT.jar
+# res.config.maven.remote-url 指定Maven阿里云仓库
+# res.config.alpine.remote-url 指定Alpine阿里云仓库
+
+# res.config.maven.cache-path 指定Maven缓存目录
+# res.config.alpine.cache-path 指定Alpine缓存目录 
+java -jar \
+  -Dres.config.maven.remote-url=https://maven.aliyun.com/repository/releases \
+  -Dres.config.alpine.remote-url=https://mirrors.aliyun.com/alpine \
+  library-cache-server-0.0.1-SNAPSHOT.jar
 ```
 或者简单运行
 ```shell
@@ -56,7 +64,9 @@ settings.xml 文件内容
 #### Alpine配置设置方式
 
 指定仓库且安装openjdk8  
-**PS** : `cat /etc/alpine-release`执行结果为`3.16.1`
+**PS** : 注意事项`cat /etc/alpine-release`执行结果为`3.16.1`。  
+有些仓库统一使用大版本，例如：`3.16.1`实际为`3.16`。  
+因此`cat /etc/alpine-release`组成的参数可能无效。
 
 ```shell
 echo http://192.168.2.115:8080/res/alpine/agent/cache/v`cat /etc/alpine-release`/main/ > /etc/apk/repositories 
