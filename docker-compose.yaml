@@ -4,7 +4,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./
-    image: library-cache-server:v0.0.2
+    image: trevet/library-cache-server:0.0.2
     container_name: library-cache-server
     restart: always
     privileged: true
@@ -15,14 +15,7 @@ services:
       - "-Dserver.port=80"
       - "-jar"
       - "app.jar"
-#    ports:
-#      - "81:8080"
+    ports:
+      - "81:80"
     volumes:
       - "/home/data/docker/library-cache/cache/:/home/cache/"
-    networks:
-      np-nw:
-        ipv4_address: 192.168.2.200
-networks:
-  np-nw:
-    external:
-      name: "np-network"
