@@ -28,7 +28,9 @@ java -jar \
   -Dres.config.alpine.remote-url=https://mirrors.aliyun.com/alpine \
   library-cache-server-0.0.1-SNAPSHOT.jar
 ```
+
 或者简单运行
+
 ```shell
 java -jar library-cache-server-0.0.1-SNAPSHOT.jar
 ```
@@ -64,9 +66,14 @@ settings.xml 文件内容
 #### Alpine配置设置方式
 
 指定仓库且安装openjdk8  
-**PS** : 注意事项`cat /etc/alpine-release`执行结果为`3.16.1`。  
+**PS** : 注意事项.1  
+`cat /etc/alpine-release`执行结果为`3.16.1`。  
 有些仓库统一使用大版本，例如：`3.16.1`实际为`3.16`。  
 因此`cat /etc/alpine-release`组成的参数可能无效。
+
+**PS** : 注意事项.2  
+如果需要将本工具放置到内网，需要将`APKINDEX.tar.gz`索引包放入对应的缓存路径中.  
+默认情况下,本工具是可以访问外网的。
 
 ```shell
 echo http://192.168.2.115:8080/res/alpine/agent/cache/v`cat /etc/alpine-release`/main/ > /etc/apk/repositories 

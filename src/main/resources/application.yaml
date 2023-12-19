@@ -3,9 +3,19 @@ server:
     context-path: /res
 res:
   config:
-    maven:
-      cache-path: "/home/cache/resources/maven/"
-      remote-url: "https://maven.aliyun.com/repository/releases,https://maven.aliyun.com/nexus/content/groups/public"
-    alpine:
-      cache-path: "/home/cache/resources/alpine/"
-      remote-url: "https://mirrors.aliyun.com/alpine"
+    cache-prefix: "/home/cache/resources"
+    params:
+      maven:
+        enable: true
+        cache-path: "${res.config.cache-prefix}/maven/"
+        remote-url:
+          - "https://maven.aliyun.com/repository/releases"
+          - "https://maven.aliyun.com/nexus/content/groups/public"
+      alpine:
+        enable: true
+        cache-path: "${res.config.cache-prefix}/alpine/"
+        remote-url:
+          - "https://mirrors.aliyun.com/alpine"
+#logging:
+#  level:
+#    cn.trevet.library.cache: debug

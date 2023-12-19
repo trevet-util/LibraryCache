@@ -11,6 +11,8 @@ import java.io.IOException;
 public interface IResourceCacheService {
     boolean cache(ResCacheTypeEnum typeEnum);
 
+    boolean isEnabled();
+
     /**
      * 获取资源主要入口
      *
