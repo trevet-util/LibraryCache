@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.trevet.library</groupId>
     <artifactId>library-cache-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>library-cache-server</name>
     <description>library-cache-server</description>
     <dependencies>
